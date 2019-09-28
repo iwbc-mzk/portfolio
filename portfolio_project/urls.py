@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from portfolio import views as portfolio_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('index/', portfolio_view.IndexView.as_view())
 ]
