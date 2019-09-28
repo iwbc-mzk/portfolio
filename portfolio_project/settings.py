@@ -26,7 +26,8 @@ SECRET_KEY = 'v7%zzx-%m#vk#p$e1uc1@%+3ls=_h6+wedljzv^r497awtgwd1'
 DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.99.100',  # docker tool box
-                 '18.182.202.235',  # aws ec2]
+                 '18.182.202.235',  # aws ec2
+                 ]
 
 
 # Application definition
