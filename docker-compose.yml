@@ -1,6 +1,25 @@
-web:
-  build: .
-  command: python manage.py runserver 127.0.0.1:8000
-  tty: true
-  ports:
-    - 80:8000
+version: "3"
+services:
+  web:
+    build: .
+    command: gunicorn portfolio_project.wsgi --bind 0.0.0.0:8000
+    container_name: web
+    tty: true
+    expose:
+      - 8000
+    volumes:
+      - staticfiles:/code/portfolio/static/
+
+  nginx:
+    image: nginx:1.13
+    container_name: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d
+      - staticfiles:/static/
+    depends_on:
+      - web
+
+volumes:
+  staticfiles:

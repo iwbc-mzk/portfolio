@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
-        <link href="css/portfolio.css" rel="stylesheet" type="text/css">
+        <link href="{% static 'portfolio/css/portfolio.css' %}" rel="stylesheet" type="text/css">
 
         <title>M.Iwabuchi's Portfolio</title>
     </head>
@@ -58,7 +59,7 @@
                     <div class="col-lg" >
                         <div class="d-table hw-fix">
                             <div class="d-table-cell align-middle">
-                                <img src="images/typing.jpg" class="img img-thumbnail rounded-lg d-none d-lg-block align-middle" id="about-img">
+                                <img src="{% static 'portfolio/images/typing.jpg' %}" class="img img-thumbnail rounded-lg d-none d-lg-block align-middle" id="about-img">
                             </div>
                         </div>
                     </div>
@@ -117,7 +118,7 @@
                     <div class="col-lg order-lg-2">
                         <div class="d-table hw-fix">
                             <div class="d-table-cell align-middle">
-                                <img src="images/letter.jpg" class="img img-thumbnail rounded-lg d-none d-lg-block align-middle" id="certifications-img">
+                                <img src="{% static 'portfolio/images/letter.jpg' %}" class="img img-thumbnail rounded-lg d-none d-lg-block align-middle" id="certifications-img">
                                 <!-- <a href="https://pixabay.com/ja/users/jarmoluk-143740/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=436501">Michal Jarmoluk</a>による<a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=436501">Pixabay</a>からの画像 -->
                             </div>
                         </div>
@@ -306,7 +307,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg border m-2 rounded text-center box-item">
-                        <img src="images/beginner.svg" width="50" height="50" class="m-3">
+                        <img src="{% static 'portfolio/images/beginner.svg' %}" width="50" height="50" class="m-3">
                         <h5>
                             新入社員研修
                             <br><small class="text-muted">2017.04-2017.06</small>
@@ -317,7 +318,7 @@
                         </p>
                     </div>
                     <div class="col-lg border m-2 rounded text-center box-item" data-toggle="modal" data-target="#workEx2">
-                        <img src="images/fashion.svg" width="50" height="50" class="m-3">
+                        <img src="{% static 'portfolio/images/fashion.svg' %}" width="50" height="50" class="m-3">
                         <h5>
                             アパレル商品開発システム
                             <br><small class="text-muted">2017.07-</small>
@@ -495,7 +496,7 @@
 
         <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 
-        <script src="js/animatescroll.js"></script>
-        <script src="js/portfolio.js"></script>
+        <script src="{% static 'portfolio/js/animatescroll.js' %}"></script>
+        <script src="{% static 'portfolio/js/portfolio.js' %}"></script>
     </body>
 </html>
