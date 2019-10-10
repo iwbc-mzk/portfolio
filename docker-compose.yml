@@ -8,7 +8,7 @@ services:
     expose:
       - 8000
     volumes:
-      - staticfiles:/code/portfolio/static/
+      - /static/:/code/portfolio/static/
 
   nginx:
     image: nginx:1.13
@@ -17,9 +17,7 @@ services:
       - 80:80
     volumes:
       - ./nginx/conf:/etc/nginx/conf.d
-      - staticfiles:/static/
+      - /static/:/static/
+      - /var/log/nginx/:/var/log/nginx/
     depends_on:
       - web
-
-volumes:
-  staticfiles:
