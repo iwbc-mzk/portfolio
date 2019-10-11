@@ -7,8 +7,6 @@ services:
     tty: true
     expose:
       - 8000
-    volumes:
-      - staticfiles:/code/portfolio/static/
 
   nginx:
     image: nginx:1.13
@@ -18,9 +16,5 @@ services:
     volumes:
       - ./nginx/conf:/etc/nginx/conf.d
       - /var/log/nginx/:/var/log/nginx/
-      - staticfiles:/static/
     depends_on:
       - web
-
-volumes:
-  staticfiles:
