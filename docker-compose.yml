@@ -11,7 +11,7 @@ services:
       - staticfiles:/code/staticfiles/
 
   nginx:
-    image: nginx:1.13
+    build: ./nginx
     container_name: nginx
     ports:
       - 80:80
