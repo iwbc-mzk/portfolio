@@ -25,9 +25,7 @@ SECRET_KEY = 'v7%zzx-%m#vk#p$e1uc1@%+3ls=_h6+wedljzv^r497awtgwd1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1',
-                 '192.168.99.100',
-                 'bibliophage.jp']
+ALLOWED_HOSTS = ['bibliophage.jp']
 
 
 # Application definition
@@ -122,3 +120,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# 開発環境と本番環境の設定ファイルの自動切換
+try:
+    from .local_settings import *
+except ImportError:
+    pass
