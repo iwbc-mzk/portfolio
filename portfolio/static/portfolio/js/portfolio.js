@@ -4,6 +4,9 @@ $( function() {
         $(hrefValue).animatescroll({padding:55});
 
         $(this).addClass('active');
+
+        $('.navbar-toggler').attr('aria-expanded', 'false').addClass('collapsed');
+        $('.navbar-collapse').collapse('hide');
     });
 
     window.addEventListener( 'scroll', () => {
