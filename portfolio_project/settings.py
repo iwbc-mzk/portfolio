@@ -27,7 +27,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1',
                  '192.168.99.100',
-                 '18.182.202.235']
+                 'bibliophage.jp']
 
 
 # Application definition
