@@ -26,22 +26,22 @@ $( function() {
             $('#about').addClass('fade-off', 700);
         }
 
-        var aboutPos = $('#skills').offset().top;
-        if(scrollTop > aboutPos - windowHeight + windowHeight/5){
+        var skillsPos = $('#skills').offset().top;
+        if(scrollTop > skillsPos - windowHeight + windowHeight/5){
             $('#skills').removeClass('fade-off', 700);
         }else{
             $('#skills').addClass('fade-off', 700);
         }
 
-        var aboutPos = $('#workExperience').offset().top;
-        if(scrollTop > aboutPos - windowHeight + windowHeight/5){
+        var workExperiencePos = $('#workExperience').offset().top;
+        if(scrollTop > workExperiencePos - windowHeight + windowHeight/5){
             $('#workExperience').removeClass('fade-off', 700);
         }else{
             $('#workExperience').addClass('fade-off', 700);
         }
 
-        var aboutPos = $('#works').offset().top;
-        if(scrollTop > aboutPos - windowHeight + windowHeight/5){
+        var worksPos = $('#works').offset().top;
+        if(scrollTop > worksPos - windowHeight + windowHeight/5){
             $('#works').removeClass('fade-off', 700);
         }else{
             $('#works').addClass('fade-off', 700);

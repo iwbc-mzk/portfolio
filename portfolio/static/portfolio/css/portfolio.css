@@ -124,6 +124,10 @@ a.nav-link {
     border-spacing: 10px;
 }
 
+.fade-off {
+    opacity: 0;
+}
+
 body {
     position: relative;
 }
