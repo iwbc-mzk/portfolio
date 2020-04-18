@@ -9,4 +9,3 @@ COPY . /code
 WORKDIR /code
 
 RUN pip install -r requirements.txt
-CMD bash -c "python manage.py collectstatic -c --noinput"

@@ -2,7 +2,9 @@ version: "3"
 services:
   web:
     build: .
-    command: bash -c "gunicorn portfolio_project.wsgi --bind 0.0.0.0:8000"
+    command: >
+      bash -c "python manage.py collectstatic -c --noinput &&
+      gunicorn portfolio_project.wsgi --bind 0.0.0.0:8000"
     container_name: web
     tty: true
     expose:
