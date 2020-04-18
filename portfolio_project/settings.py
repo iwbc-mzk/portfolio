@@ -55,7 +55,7 @@ ROOT_URLCONF = 'portfolio_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,6 +119,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+# 各App以外のstatic以外に配信するフォルダの指定
+STATICFILES_DIRS = ['static']
+# staticファイルを集約するフォルダの指定
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # 開発環境と本番環境の設定ファイルの自動切換
