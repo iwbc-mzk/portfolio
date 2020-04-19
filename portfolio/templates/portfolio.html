@@ -7,9 +7,11 @@
 {% endblock %}
 
 {% block body %}
-<!-- base.htmlのbodyタグと合わせて2重になってしまうため要修正 -->
-<!-- divタグでのScrollSpyが上手くいかないためbodyタグのまま -->
-<body data-spy="scroll" data-target="#navbarTop" data-offset="100">
+    <!-- ナビゲーションバーのScrollSpyのためにbodyタグに属性を追加する -->
+    <script>
+        $('body').attr('data-spy', 'scroll').attr('data-taget', '#navbarTop').attr('data-offset', '100');
+    </script>
+
     <!-- Start Navbar -->
     <nav class="navbar fixed-top navbar-dark navbar-expand-md" id="navbarTop">
         <div class="container">
@@ -492,5 +494,4 @@
 
     <script src="{% static 'portfolio/js/animatescroll.js' %}"></script>
     <script src="{% static 'portfolio/js/portfolio.js' %}"></script>
-</body>
 {% endblock %}
