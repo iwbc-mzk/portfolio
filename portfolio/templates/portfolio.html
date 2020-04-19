@@ -1,512 +1,496 @@
-<!DOCTYPE html>
-<html lang="en">
 {% extends 'base.html' %}
 {% load static %}
-    <head>
-        {% block head %}
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
-        <link href="{% static 'portfolio/css/portfolio.css' %}" rel="stylesheet" type="text/css">
+{% block head %}
+    <link href="{% static 'portfolio/css/portfolio.css' %}" rel="stylesheet" type="text/css">
+    <title>M.I's Portfolio</title>
+{% endblock %}
 
-        <title>M.I's Portfolio</title>
-        {% endblock %}
-    </head>
-
-    <body data-spy="scroll" data-target="#navbarTop" data-offset="100">
-        {% block body %}
-        <!-- Start Navbar -->
-        <nav class="navbar fixed-top navbar-dark navbar-expand-md" id="navbarTop">
-            <div class="container">
-                <!-- <a class="navbar-brand" href="#home">M.I</a> -->
-                <button class="navbar-toggler" type="button"
-                        data-toggle="collapse"
-                        data-target="#navbarCollapse"
-                        aria-controls="navbarCollapse"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto">
-                        <a class="nav-item nav-link" href="#home">Home</a>
-                        <a class="nav-item nav-link" href="#about">About</a>
-                        <a class="nav-item nav-link" href="#skills">Skills</a>
-                        <a class="nav-item nav-link" href="#workExperience">WorkExperience</a>
-                        <a class="nav-item nav-link" href="#works">Works</a>
-                    </div>
+{% block body %}
+<!-- base.htmlのbodyタグと合わせて2重になってしまうため要修正 -->
+<!-- divタグでのScrollSpyが上手くいかないためbodyタグのまま -->
+<body data-spy="scroll" data-target="#navbarTop" data-offset="100">
+    <!-- Start Navbar -->
+    <nav class="navbar fixed-top navbar-dark navbar-expand-md" id="navbarTop">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="#home">M.I</a> -->
+            <button class="navbar-toggler" type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link" href="#home">Home</a>
+                    <a class="nav-item nav-link" href="#about">About</a>
+                    <a class="nav-item nav-link" href="#skills">Skills</a>
+                    <a class="nav-item nav-link" href="#workExperience">WorkExperience</a>
+                    <a class="nav-item nav-link" href="#works">Works</a>
                 </div>
             </div>
-        </nav>
-        <!-- End Navbar -->
+        </div>
+    </nav>
+    <!-- End Navbar -->
 
-        <!-- Start Home Title -->
-        <section class="container-fluid section home-bg-img h-100vh d-table text-white" id="home">
-            <div class="home-bg-over"></div>
-            <div class="d-table-cell text-center align-middle">
-                <p class="home-title home-title-prefix">Welcome</p>
-                <p class="home-title home-title-main">M.I's<br> Portfolio</p>
-            </div>
-            <!--
-            <a href="https://pixabay.com/ja/users/lukasbieri-4664461/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2838921">Lukas Bieri</a>による<a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2838921">Pixabay</a>からの画像
-            -->
-        </section>
-        <!-- End Home Title -->
+    <!-- Start Home Title -->
+    <section class="container-fluid section home-bg-img h-100vh d-table text-white" id="home">
+        <div class="home-bg-over"></div>
+        <div class="d-table-cell text-center align-middle">
+            <p class="home-title home-title-prefix">Welcome</p>
+            <p class="home-title home-title-main">M.I's<br> Portfolio</p>
+        </div>
+        <!--
+        <a href="https://pixabay.com/ja/users/lukasbieri-4664461/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2838921">Lukas Bieri</a>による<a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2838921">Pixabay</a>からの画像
+        -->
+    </section>
+    <!-- End Home Title -->
 
-        <!-- Start About -->
-        <section class="section fade-off" id="about">
-            <h2 class="text-center section-title">About</h2>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg" >
-                        <div class="d-table hw-fix">
-                            <div class="d-table-cell align-middle">
-                                <img src="{% static 'portfolio/images/typing.jpg' %}" class="img img-thumbnail rounded-lg d-none d-lg-block align-middle" id="about-img">
-                            </div>
+    <!-- Start About -->
+    <section class="section fade-off" id="about">
+        <h2 class="text-center section-title">About</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg" >
+                    <div class="d-table hw-fix">
+                        <div class="d-table-cell align-middle">
+                            <img src="{% static 'portfolio/images/typing.jpg' %}" class="img img-thumbnail rounded-lg d-none d-lg-block align-middle" id="about-img">
                         </div>
                     </div>
-                    <div class="col-lg m-2">
-                        <div class="d-table about-msg">
-                            <div class="d-table-cell align-middle">
-                                <h4 class="text-center mb-4">
-                                    <span class="title-bottom-border">PersonalData</span>
-                                </h4>
+                </div>
+                <div class="col-lg m-2">
+                    <div class="d-table about-msg">
+                        <div class="d-table-cell align-middle">
+                            <h4 class="text-center mb-4">
+                                <span class="title-bottom-border">PersonalData</span>
+                            </h4>
 
-                                <div class="row my-1">
-                                    <div class="col-4">
-                                        名前:
-                                    </div>
-                                    <div class="col-8">
-                                        M.I
-                                    </div>
+                            <div class="row my-1">
+                                <div class="col-4">
+                                    名前:
                                 </div>
-                                <div class="row my-1">
-                                    <div class="col-4">
-                                        現住所:
-                                    </div>
-                                    <div class="col-8">
-                                        東京都
-                                    </div>
+                                <div class="col-8">
+                                    M.I
                                 </div>
-                                <div class="row my-1">
-                                    <div class="col-4">
-                                        出身地:
-                                    </div>
-                                    <div class="col-8">
-                                        千葉県
-                                    </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-4">
+                                    現住所:
                                 </div>
-                                <div class="row my-1">
-                                    <div class="col-4">
-                                        生年月日:
-                                    </div>
-                                    <div class="col-8">
-                                        1991/04/10
-                                    </div>
+                                <div class="col-8">
+                                    東京都
                                 </div>
-                                <div class="row my-1">
-                                    <div class="col-4">
-                                        学歴:
-                                    </div>
-                                    <div class="col-8">
-                                        某国立大学 理学部 物理学科 卒業
-                                    </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-4">
+                                    出身地:
                                 </div>
-                                <div class="row my-1">
-                                    <div class="col-4">
-                                        趣味:
-                                    </div>
-                                    <div class="col-8">
-                                        読書
-                                    </div>
+                                <div class="col-8">
+                                    千葉県
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-4">
+                                    生年月日:
+                                </div>
+                                <div class="col-8">
+                                    1991/04/10
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-4">
+                                    学歴:
+                                </div>
+                                <div class="col-8">
+                                    某国立大学 理学部 物理学科 卒業
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-4">
+                                    趣味:
+                                </div>
+                                <div class="col-8">
+                                    読書
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg order-lg-2">
-                        <div class="d-table hw-fix">
-                            <div class="d-table-cell align-middle">
-                                <img src="{% static 'portfolio/images/letter.jpg' %}" class="img img-thumbnail rounded-lg d-none d-lg-block align-middle" id="certifications-img">
-                                <!-- <a href="https://pixabay.com/ja/users/jarmoluk-143740/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=436501">Michal Jarmoluk</a>による<a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=436501">Pixabay</a>からの画像 -->
+            </div>
+            <div class="row">
+                <div class="col-lg order-lg-2">
+                    <div class="d-table hw-fix">
+                        <div class="d-table-cell align-middle">
+                            <img src="{% static 'portfolio/images/letter.jpg' %}" class="img img-thumbnail rounded-lg d-none d-lg-block align-middle" id="certifications-img">
+                            <!-- <a href="https://pixabay.com/ja/users/jarmoluk-143740/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=436501">Michal Jarmoluk</a>による<a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=436501">Pixabay</a>からの画像 -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg order-lg-1 m-2">
+                    <div class="d-table about-msg">
+                        <div class="d-table-cell align-middle">
+                            <h4 class="text-center mb-4">
+                                <span class="title-bottom-border">Certification</span>
+                            </h4>
+                            <div class="row my-1">
+                                <div class="col-4">
+                                    2017/05 取得
+                                </div>
+                                <div class="col-8">
+                                    Java SE8 認定資格 Silver
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-4">
+                                    2017/11 取得
+                                </div>
+                                <div class="col-8">
+                                    基本情報技術者
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-4">
+                                    2018/12 取得
+                                </div>
+                                <div class="col-8">
+                                    情報処理安全確保支援士<br>
+                                    登録番号: <a href="https://riss.ipa.go.jp/r?r=018330" target="_blank">018330</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg order-lg-1 m-2">
-                        <div class="d-table about-msg">
-                            <div class="d-table-cell align-middle">
-                                <h4 class="text-center mb-4">
-                                    <span class="title-bottom-border">Certification</span>
-                                </h4>
-                                <div class="row my-1">
-                                    <div class="col-4">
-                                        2017/05 取得
-                                    </div>
-                                    <div class="col-8">
-                                        Java SE8 認定資格 Silver
-                                    </div>
-                                </div>
-                                <div class="row my-1">
-                                    <div class="col-4">
-                                        2017/11 取得
-                                    </div>
-                                    <div class="col-8">
-                                        基本情報技術者
-                                    </div>
-                                </div>
-                                <div class="row my-1">
-                                    <div class="col-4">
-                                        2018/12 取得
-                                    </div>
-                                    <div class="col-8">
-                                        情報処理安全確保支援士<br>
-                                        登録番号: <a href="https://riss.ipa.go.jp/r?r=018330" target="_blank">018330</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
 
+            </div>
+        </div>
+    </section>
+    <!-- End About -->
+
+    <!-- Start Skills -->
+    <section class="section section-bg text-center fade-off" id="skills">
+        <h2 class="section-title">Skills<br>
+            <span class="text-muted">Please click icons to show details.</span>
+        </h2>
+
+        <h4>
+            <span class="title-bottom-border">Language</span>
+        </h4>
+        <div class="container mb-4">
+            <div class="d-flex flex-row flex-wrap justify-content-center">
+                <div class="p-2" data-toggle="modal" data-target="#pythonModal">
+                    <img src="https://icongr.am/devicon/python-original-wordmark.svg?size=70">
+                </div>
+                <div class="p-2" data-toggle="modal" data-target="#javaModal">
+                    <img src="https://icongr.am/devicon/java-original-wordmark.svg?size=70">
+                </div>
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/html5-original-wordmark.svg?size=70">
+                </div>
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/css3-original-wordmark.svg?size=70">
+                </div>
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/javascript-original.svg?size=70">
                 </div>
             </div>
-        </section>
-        <!-- End About -->
+        </div>
 
-        <!-- Start Skills -->
-        <section class="section section-bg text-center fade-off" id="skills">
-            <h2 class="section-title">Skills<br>
-                <span class="text-muted">Please click icons to show details.</span>
-            </h2>
-
-            <h4>
-                <span class="title-bottom-border">Language</span>
-            </h4>
-            <div class="container mb-4">
-                <div class="d-flex flex-row flex-wrap justify-content-center">
-                    <div class="p-2" data-toggle="modal" data-target="#pythonModal">
-                        <img src="https://icongr.am/devicon/python-original-wordmark.svg?size=70">
-                    </div>
-                    <div class="p-2" data-toggle="modal" data-target="#javaModal">
-                        <img src="https://icongr.am/devicon/java-original-wordmark.svg?size=70">
-                    </div>
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/html5-original-wordmark.svg?size=70">
-                    </div>
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/css3-original-wordmark.svg?size=70">
-                    </div>
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/javascript-original.svg?size=70">
-                    </div>
+        <h4>
+            <span class="title-bottom-border">Database</span>
+        </h4>
+        <div class="container mb-4">
+            <div class="d-flex flex-row flex-wrap justify-content-center">
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/oracle-original.svg?size=70">
+                </div>
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/mongodb-original-wordmark.svg?size=70">
                 </div>
             </div>
+        </div>
 
-            <h4>
-                <span class="title-bottom-border">Database</span>
-            </h4>
-            <div class="container mb-4">
-                <div class="d-flex flex-row flex-wrap justify-content-center">
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/oracle-original.svg?size=70">
-                    </div>
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/mongodb-original-wordmark.svg?size=70">
-                    </div>
+        <h4>
+            <span class="title-bottom-border">Framework</span>
+        </h4>
+        <div class="container mb-4">
+            <div class="d-flex flex-row flex-wrap justify-content-center">
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/django-original.svg?size=70">
+                </div>
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/bootstrap-plain-wordmark.svg?size=70&color=5B4282&colored=true">
+                </div>
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/jquery-original-wordmark.svg?size=70">
                 </div>
             </div>
+        </div>
 
-            <h4>
-                <span class="title-bottom-border">Framework</span>
-            </h4>
-            <div class="container mb-4">
-                <div class="d-flex flex-row flex-wrap justify-content-center">
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/django-original.svg?size=70">
-                    </div>
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/bootstrap-plain-wordmark.svg?size=70&color=5B4282&colored=true">
-                    </div>
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/jquery-original-wordmark.svg?size=70">
-                    </div>
+        <h4>
+            <span class="title-bottom-border">Infrastructure</span>
+        </h4>
+        <div class="container mb-4">
+            <div class="d-flex flex-row flex-wrap justify-content-center">
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/amazonwebservices-original-wordmark.svg?size=70">
+                </div>
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/docker-original-wordmark.svg?size=70">
                 </div>
             </div>
+        </div>
 
-            <h4>
-                <span class="title-bottom-border">Infrastructure</span>
-            </h4>
-            <div class="container mb-4">
-                <div class="d-flex flex-row flex-wrap justify-content-center">
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/amazonwebservices-original-wordmark.svg?size=70">
-                    </div>
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/docker-original-wordmark.svg?size=70">
-                    </div>
+        <h4>
+            <span class="title-bottom-border">Others</span>
+        </h4>
+        <div class="container mb-4">
+            <div class="d-flex flex-row flex-wrap justify-content-center">
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/git-original-wordmark.svg?size=70">
+                </div>
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/github-original-wordmark.svg?size=70">
+                </div>
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/confluence-original-wordmark.svg?size=70">
+                </div>
+                <div class="p-2">
+                    <img src="https://icongr.am/simple/jira.svg?size=70&color=4c6cb3&colored=true">
+                </div>
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/slack-original-wordmark.svg?size=70">
+                </div>
+                <div class="p-2">
+                    <img src="https://icongr.am/devicon/pycharm-original-wordmark.svg?size=70">
+                </div>
+                <div class="p-2">
+                    <img src="https://icongr.am/simple/eclipseide.svg?size=70&color=17184b&colored=true">
                 </div>
             </div>
+        </div>
 
-            <h4>
-                <span class="title-bottom-border">Others</span>
-            </h4>
-            <div class="container mb-4">
-                <div class="d-flex flex-row flex-wrap justify-content-center">
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/git-original-wordmark.svg?size=70">
+        <!-- Start Modal -->
+        <!-- Python -->
+        <div class="modal fade" id="pythonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center w-100">Python</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/github-original-wordmark.svg?size=70">
-                    </div>
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/confluence-original-wordmark.svg?size=70">
-                    </div>
-                    <div class="p-2">
-                        <img src="https://icongr.am/simple/jira.svg?size=70&color=4c6cb3&colored=true">
-                    </div>
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/slack-original-wordmark.svg?size=70">
-                    </div>
-                    <div class="p-2">
-                        <img src="https://icongr.am/devicon/pycharm-original-wordmark.svg?size=70">
-                    </div>
-                    <div class="p-2">
-                        <img src="https://icongr.am/simple/eclipseide.svg?size=70&color=17184b&colored=true">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Start Modal -->
-            <!-- Python -->
-            <div class="modal fade" id="pythonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-center w-100">Python</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                経験: 約1年 (2018.8-)<br>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Java -->
-            <div class="modal fade" id="javaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title  text-center w-100">Java</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                経験: 3ヵ月 (2017.4-2017.7)<br>
-                                新人研修として東京ITスクールの集合研修を受講
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Modal -->
-        </section>
-        <!-- End Skills -->
-
-        <!-- Start Work Experience -->
-        <section class="section fade-off" id="workExperience">
-            <h2 class="text-center section-title">Work Experience</h2>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg border m-2 rounded text-center box-item">
-                        <img src="{% static 'portfolio/images/beginner.svg' %}" width="50" height="50" class="m-3">
-                        <h5>
-                            新入社員研修
-                            <br><small class="text-muted">2017.04-2017.06</small>
-                        </h5>
-                        <div class="border-item"></div>
-                        <p class="text-muted p-2">
-                            東京ITスクールによる新人研修
+                    <div class="modal-body">
+                        <p>
+                            経験: 約1年 (2018.8-)<br>
                         </p>
                     </div>
-                    <div class="col-lg border m-2 rounded text-center box-item" data-toggle="modal" data-target="#workEx2">
-                        <img src="{% static 'portfolio/images/fashion.svg' %}" width="50" height="50" class="m-3">
-                        <h5>
-                            大手衣料品製造販売会社<br>
+                </div>
+            </div>
+        </div>
+        <!-- Java -->
+        <div class="modal fade" id="javaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title  text-center w-100">Java</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            経験: 3ヵ月 (2017.4-2017.7)<br>
+                            新人研修として東京ITスクールの集合研修を受講
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+    </section>
+    <!-- End Skills -->
+
+    <!-- Start Work Experience -->
+    <section class="section fade-off" id="workExperience">
+        <h2 class="text-center section-title">Work Experience</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg border m-2 rounded text-center box-item">
+                    <img src="{% static 'portfolio/images/beginner.svg' %}" width="50" height="50" class="m-3">
+                    <h5>
+                        新入社員研修
+                        <br><small class="text-muted">2017.04-2017.06</small>
+                    </h5>
+                    <div class="border-item"></div>
+                    <p class="text-muted p-2">
+                        東京ITスクールによる新人研修
+                    </p>
+                </div>
+                <div class="col-lg border m-2 rounded text-center box-item" data-toggle="modal" data-target="#workEx2">
+                    <img src="{% static 'portfolio/images/fashion.svg' %}" width="50" height="50" class="m-3">
+                    <h5>
+                        大手衣料品製造販売会社<br>
+                        <small class="text-muted">2017.07-</small>
+                    </h5>
+                    <div class="border-item"></div>
+                    <p class="text-muted p-2">
+                        新PLMシステムへの移行作業<br>
+                        サブシステムの開発・テスト等
+                    </p>
+                </div>
+                <div class="col-lg border m-2 rounded text-center box-item d-none d-lg-block">
+                    <div class="d-table hw-fix">
+                        <div class="d-table-cell align-middle">
+                            <h5>準備中</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Modal -->
+        <!-- Python -->
+        <div class="modal fade" id="workEx2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center w-100">
+                            衣料品PLMシステム移行業務<br>
                             <small class="text-muted">2017.07-</small>
                         </h5>
-                        <div class="border-item"></div>
-                        <p class="text-muted p-2">
-                            新PLMシステムへの移行作業<br>
-                            サブシステムの開発・テスト等
-                        </p>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <div class="col-lg border m-2 rounded text-center box-item d-none d-lg-block">
-                        <div class="d-table hw-fix">
-                            <div class="d-table-cell align-middle">
-                                <h5>準備中</h5>
+                    <div class="modal-body p-0">
+                        <div class="container-fluid section-bg">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            概要
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    基幹システムから新PLMシステムへの移行業務、またそのサブシステムの開発
+                                    チーム人数: 日本15名, 中国7名 程度
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Start Modal -->
-            <!-- Python -->
-            <div class="modal fade" id="workEx2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-center w-100">
-                                衣料品PLMシステム移行業務<br>
-                                <small class="text-muted">2017.07-</small>
-                            </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                        <div class="container-fluid">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            言語
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    Python, SQL, PL/SQL
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-body p-0">
-                            <div class="container-fluid section-bg">
-                                <div class="row py-2 px-4">
-                                    <div class="col-md-3 text-center">
-                                        <div class="d-table hw-fix">
-                                            <div class="d-table-cell align-middle">
-                                                概要
-                                            </div>
+                        <div class="container-fluid section-bg">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            DB
                                         </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        基幹システムから新PLMシステムへの移行業務、またそのサブシステムの開発
-                                        チーム人数: 日本15名, 中国7名 程度
                                     </div>
                                 </div>
-                            </div>
-                            <div class="container-fluid">
-                                <div class="row py-2 px-4">
-                                    <div class="col-md-3 text-center">
-                                        <div class="d-table hw-fix">
-                                            <div class="d-table-cell align-middle">
-                                                言語
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        Python, SQL, PL/SQL
-                                    </div>
+                                <div class="col-md-9">
+                                    Oracle, MongoDB
                                 </div>
                             </div>
-                            <div class="container-fluid section-bg">
-                                <div class="row py-2 px-4">
-                                    <div class="col-md-3 text-center">
-                                        <div class="d-table hw-fix">
-                                            <div class="d-table-cell align-middle">
-                                                DB
-                                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            フレームワーク
                                         </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        Oracle, MongoDB
                                     </div>
                                 </div>
-                            </div>
-                            <div class="container-fluid">
-                                <div class="row py-2 px-4">
-                                    <div class="col-md-3 text-center">
-                                        <div class="d-table hw-fix">
-                                            <div class="d-table-cell align-middle">
-                                                フレームワーク
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9">
-                                        django
-                                    </div>
+                                <div class="col-md-9">
+                                    django
                                 </div>
                             </div>
-                            <div class="container-fluid section-bg">
-                                <div class="row py-2 px-4">
-                                    <div class="col-md-3 text-center">
-                                        <div class="d-table hw-fix">
-                                            <div class="d-table-cell align-middle">
-                                                担当業務
-                                            </div>
+                        </div>
+                        <div class="container-fluid section-bg">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            担当業務
                                         </div>
                                     </div>
-                                    <div class="col-md-9">
-                                        <ul>
-                                            <li>他システムとの各データインターフェースの開発・テスト・運用</li>
-                                            <li>サブシステムの開発・テスト</li>
-                                            <li>ユーザーからの問い合わせに対する調査</li>
-                                            <li>データメンテナンス作業</li>
-                                        </ul>
-                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <ul>
+                                        <li>他システムとの各データインターフェースの開発・テスト・運用</li>
+                                        <li>サブシステムの開発・テスト</li>
+                                        <li>ユーザーからの問い合わせに対する調査</li>
+                                        <li>データメンテナンス作業</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- End Work Experience -->
-
-        <!-- Start Works -->
-        <section class="section section-bg fade-off" id="works">
-            <h2 class="text-center section-title">Works</h2>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg border m-2 rounded text-center works-portfolio box-item">
-                    </div>
-                    <div class="col-lg border m-2 rounded text-center d-none d-lg-block">
-                        <div class="d-table hw-fix">
-                            <div class="d-table-cell align-middle">
-                                <h5>準備中</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg border m-2 rounded text-center d-none d-lg-block">
-                        <div class="d-table hw-fix">
-                            <div class="d-table-cell align-middle">
-                                <h5>準備中</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Works -->
-
-        <!-- Start Footer -->
-        <div class="container-fluid text-center p-2" id="footer">
-            <a href="mailto:m-iwabuchi@bibliophage.jp">
-                <img src="https://icongr.am/entypo/mail-with-circle.svg?size=50">
-            </a>
-            <a href="https://github.com/iwbc-mzk" target="_blank">
-                <img src="https://icongr.am/simple/github.svg?size=50">
-            </a>
         </div>
+    </section>
+    <!-- End Work Experience -->
 
-        <div class="container-fluid text-center p-1" id="copyright">
-            <small>Copyright © 2020 M.I All Rights Reserved.</small>
+    <!-- Start Works -->
+    <section class="section section-bg fade-off" id="works">
+        <h2 class="text-center section-title">Works</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg border m-2 rounded text-center works-portfolio box-item">
+                </div>
+                <div class="col-lg border m-2 rounded text-center d-none d-lg-block">
+                    <div class="d-table hw-fix">
+                        <div class="d-table-cell align-middle">
+                            <h5>準備中</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg border m-2 rounded text-center d-none d-lg-block">
+                    <div class="d-table hw-fix">
+                        <div class="d-table-cell align-middle">
+                            <h5>準備中</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- End Footer -->
+    </section>
+    <!-- End Works -->
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Start Footer -->
+    <div class="container-fluid text-center p-2" id="footer">
+        <a href="mailto:m-iwabuchi@bibliophage.jp">
+            <img src="https://icongr.am/entypo/mail-with-circle.svg?size=50">
+        </a>
+        <a href="https://github.com/iwbc-mzk" target="_blank">
+            <img src="https://icongr.am/simple/github.svg?size=50">
+        </a>
+    </div>
 
-        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <div class="container-fluid text-center p-1" id="copyright">
+        <small>Copyright © 2020 M.I All Rights Reserved.</small>
+    </div>
+    <!-- End Footer -->
 
-        <script src="{% static 'portfolio/js/animatescroll.js' %}"></script>
-        <script src="{% static 'portfolio/js/portfolio.js' %}"></script>
-        {% endblock %}
-    </body>
-</html>
+    <script src="{% static 'portfolio/js/animatescroll.js' %}"></script>
+    <script src="{% static 'portfolio/js/portfolio.js' %}"></script>
+</body>
+{% endblock %}
