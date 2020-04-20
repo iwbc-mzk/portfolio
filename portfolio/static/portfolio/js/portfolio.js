@@ -1,4 +1,7 @@
 $( function() {
+    /* ナビゲーションバーのScrollSpyのためにbodyタグに属性を追加する */
+    $('body').attr('data-spy', 'scroll').attr('data-taget', '#navbarTop').attr('data-offset', '100');
+
     $("a.nav-link, a.navbar-brand").click( function () {
         var hrefValue = $(this).attr('href');
         $(hrefValue).animatescroll({scrollSpeed:1000, padding:55}, 1000);
