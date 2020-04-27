@@ -278,7 +278,7 @@ def main():
     elapsed_time_sec = round(elapsed_time.total_seconds() % 60)
     print(f'実行時間: {elapsed_time_min}分{elapsed_time_sec}秒')
 
-    test(test_dataset=test_images, test_label=test_labels)
+    test(test_images, test_labels)
 
 
 if __name__ == '__main__':

@@ -312,7 +312,9 @@
 
     <!-- Start Work Experience -->
     <section class="section fade-off" id="workExperience">
-        <h2 class="text-center section-title">Work Experience</h2>
+        <h2 class="text-center section-title">Work Experience<br>
+            <span class="text-muted">Please click to show details.</span>
+        </h2>
         <div class="container">
             <div class="row">
                 <div class="col-lg border m-2 rounded text-center box-item">
@@ -330,7 +332,7 @@
                     <img src="{% static 'portfolio/images/fashion.svg' %}" width="50" height="50" class="m-3">
                     <h5>
                         大手衣料品製造販売会社<br>
-                        <small class="text-muted">2017.07-</small>
+                        <small class="text-muted">2017.07-2019.11</small>
                     </h5>
                     <div class="border-item"></div>
                     <p class="text-muted p-2">
@@ -356,7 +358,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title text-center w-100">
                             衣料品PLMシステム移行業務<br>
-                            <small class="text-muted">2017.07-</small>
+                            <small class="text-muted">2017.07-2019.11</small>
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -448,18 +450,15 @@
 
     <!-- Start Works -->
     <section class="section section-bg fade-off" id="works">
-        <h2 class="text-center section-title">Works</h2>
+        <h2 class="text-center section-title">Works<br>
+            <span class="text-muted">Please click to show details.</span>
+        </h2>
         <div class="container">
             <div class="row">
-                <div class="col-lg border m-2 rounded text-center works-portfolio box-item">
-                </div>
-                <div class="col-lg border m-2 rounded text-center d-none d-lg-block">
-                    <div class="d-table hw-fix">
-                        <div class="d-table-cell align-middle">
-                            <h5>準備中</h5>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-lg border m-2 rounded text-center works-portfolio works-base box-item" data-toggle="modal" data-target="#works1"></div>
+
+                <div class="col-lg border m-2 rounded text-center works-numeral-recognition works-base box-item" data-toggle="modal" data-target="#works2"></div>
+
                 <div class="col-lg border m-2 rounded text-center d-none d-lg-block">
                     <div class="d-table hw-fix">
                         <div class="d-table-cell align-middle">
@@ -469,6 +468,222 @@
                 </div>
             </div>
         </div>
+
+        <!-- Start Modal -->
+        <!-- portfolio site -->
+        <div class="modal fade" id="works1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center w-100">
+                            ポートフォリオサイト<br>
+                            <small class="text-muted">2019.10 公開</small>
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <div class="container-fluid section-bg">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            概要
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    スキル向上・学習の為、テンプレートを利用せずに１から作成した。<br>
+                                    独自ドメインの取得、Secure化を行い、インフラにAWSを導入して公開した。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            言語
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    Python, JavaScript, HTML5, CSS
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid section-bg">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            DB
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    なし
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            フレームワーク
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    django, Bootstrap4, jQuery
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid section-bg">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            ツール
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    Git, GitHub, Docker, AWS
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            URL
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    当サイト <a href="https://bibliophage.jp" target="_blank">https://bibliophage.jp</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- portfolio site -->
+        <div class="modal fade" id="works2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center w-100">
+                            手書き数字画像認識アプリ<br>
+                            <small class="text-muted">2020.4 公開</small>
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <div class="container-fluid section-bg">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            概要
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <p>Udemyで機械学習を学んだので学習内容のアウトプットとして作成。</p>
+                                    <p>講座内では一つの画像を学習させた後、別の画像が学習した画像と同じ数字かどうかしか判別できなかったが、
+                                    改良を加えて何の数字が書かれているか判別できるようにした。<br>
+                                    また精度向上のため予想させる前に画像の前処理を追加した。</p>
+                                    <p>学習データにはMNISTの数字画像データを使用。<br>
+                                    MNISTのテストデータでは正答率97.5%程度。</p>
+                                    <p>参考: <a href="https://www.udemy.com/course/machine-learning-3algo/" target="_blank">
+                                    【徹底的に解説！】人工知能・機械学習エンジニア養成講座（初級編～統計学から数字認識まで～）</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            言語
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    Python, JavaScript, HTML5, CSS
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid section-bg">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            DB
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    なし
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            フレームワーク
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    django, Bootstrap4, jQuery
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid section-bg">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            ツール
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    Git, GitHub
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row py-2 px-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="d-table hw-fix">
+                                        <div class="d-table-cell align-middle">
+                                            URL
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <a href="https://bibliophage.jp/numeralRecognition/" target="_blank">https://bibliophage.jp/numeralRecognition/</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
     <!-- End Works -->
 

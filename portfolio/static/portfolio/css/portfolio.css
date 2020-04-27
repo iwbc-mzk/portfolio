@@ -21,10 +21,17 @@
     height: 250px;
 }
 
-.works-portfolio {
-    background-image: url(../images/portfolio.jpg);
+.works-base {
     background-size: cover;
     background-position: center center;
+}
+
+.works-portfolio {
+    background-image: url(../images/portfolio.jpg);
+}
+
+.works-numeral-recognition {
+    background-image: url(../images/numeral_recognition.PNG);
 }
 
 a.nav-link {
