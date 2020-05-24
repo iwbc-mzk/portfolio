@@ -3,7 +3,48 @@ function csrfSafeMethod(method) {
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
 
+// クリック中の判定(1:クリック開始, 2:クリック中)
+var clickFlg = 0;
+
+// 参考: https://www.otwo.jp/blog/canvas-drawing/
+function draw(x, y) {
+    var cv = $("#nr_canvas")[0]
+    var ct = cv.getContext('2d');
+
+    // 線の色
+    var strokeStyle = "255, 255, 255, 1";
+    // 線の太さ
+    var lineWidth = 5;
+
+    ct.lineWidth = lineWidth;
+    ct.strokeStyle = strokeStyle;
+
+    if (clickFlg == "1") {
+        clickFlg = 2;
+        ct.beginPath();
+        ct.lineCap = "round";
+        ct.moveTo(x, y);
+    } else {
+        ct.lineTo(x, y);
+    }
+    ct.stroke();
+}
+
 $( function() {
+    // NumeralRecognition用キャンバス処理
+    $("#nr_canvas").mousedown(function(){
+        // マウス押下開始
+        clickFlg = 1;
+    }).mouseup(function(){
+        //　マウス押下終了
+        clickFlg = 0;
+    }).mousemove(e => {
+        // マウス移動処理
+        if(!clickFlg) return false;
+        draw(e.offsetX, e.offsetY);
+    });
+
+    // 手書き画像送信フォーム用処理
     $("form").submit( function(event) {
         event.preventDefault();
         var form = $(this);
