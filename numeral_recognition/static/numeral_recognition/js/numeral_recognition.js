@@ -3,46 +3,114 @@ function csrfSafeMethod(method) {
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
 
-// クリック中の判定(1:クリック開始, 2:クリック中)
-var clickFlg = 0;
-
 // 参考: https://www.otwo.jp/blog/canvas-drawing/
-function draw(x, y) {
-    var cv = $("#nr_canvas")[0]
-    var ct = cv.getContext('2d');
+class Canvas {
+    constructor() {
+        this.cv =  $("#nr_canvas")[0]
+        this.ct = this.cv.getContext('2d');
 
-    // 線の色
-    var strokeStyle = "255, 255, 255, 1";
-    // 線の太さ
-    var lineWidth = 5;
+        // クリック中の判定(1:クリック開始, 2:クリック中)
+        this.clickFlg = 0;
 
-    ct.lineWidth = lineWidth;
-    ct.strokeStyle = strokeStyle;
+        // 背景色
+        this.bgColor = "rgb(255,255,255)";
 
-    if (clickFlg == "1") {
-        clickFlg = 2;
-        ct.beginPath();
-        ct.lineCap = "round";
-        ct.moveTo(x, y);
-    } else {
-        ct.lineTo(x, y);
+        // 線の色
+        this.strokeStyle = "255, 255, 255, 1";
+
+        // 線の幅
+        this.lineWidth = 15;
+
+        this.cnvWidth = 300;
+        this.cnvHeight = 200;
+
+        this.setBgColor()
+        this.setLineStyle()
+
     }
-    ct.stroke();
+
+    setBgColor() {
+        this.ct.fillStyle = this.bgColor;
+        this.ct.fillRect(0, 0, this.cnvWidth, this.cnvHeight);
+    }
+
+    setLineStyle() {
+        this.ct.lineWidth = this.lineWidth;
+        this.ct.strokeStyle = this.strokeStyle;
+    }
+
+    draw(x, y) {
+        if (this.clickFlg == "1") {
+            this.clickFlg = 2;
+            this.ct.beginPath();
+            this.ct.lineCap = "round";
+            this.ct.moveTo(x, y);
+        } else {
+            this.ct.lineTo(x, y);
+        }
+        this.ct.stroke();
+        }
+
+    clear() {
+      this.ct.clearRect(0, 0, this.cnvWidth, this.cnvHeight);
+      this.setBgColor();
+    }
+}
+
+// Canvas画像送信処理
+function sendCanvasImg() {
+    //CSRF対策用トークンを取得
+    var csrftoken = Cookies.get('csrftoken');
+
+    var img = $("#nr_canvas")[0].toDataURL("image/png");
+
+    var fd = new FormData();
+
+    fd.append('img', img);
+
+   $.ajax({
+        url: "/numeralRecognition/a/",
+        method: "post",
+        data: fd,
+        timeout: 10000,
+        dataType: 'json',
+        // 送信データの最初にCSRF対策用トークンを追加
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader('X-CSRFToken', csrftoken);
+            }
+        },
+        processData: false,
+        contentType: false,
+    }).done( function(response) {
+        if (response.error_msg) {
+            $('#errorMsg').text('Error: ' + response.error_msg);
+        } else {
+            $('#result').text(response.result);
+        }
+
+    })
 }
 
 $( function() {
     // NumeralRecognition用キャンバス処理
+    const canvas = new Canvas()
     $("#nr_canvas").mousedown(function(){
         // マウス押下開始
-        clickFlg = 1;
+        canvas.clickFlg = 1;
     }).mouseup(function(){
         //　マウス押下終了
-        clickFlg = 0;
+        canvas.clickFlg = 0;
+        sendCanvasImg();
     }).mousemove(e => {
         // マウス移動処理
-        if(!clickFlg) return false;
-        draw(e.offsetX, e.offsetY);
+        if(!canvas.clickFlg) return false;
+        canvas.draw(e.offsetX, e.offsetY);
     });
+
+    $("#canvasClear").click( function(event) {
+        canvas.clear();
+    })
 
     // 手書き画像送信フォーム用処理
     $("form").submit( function(event) {

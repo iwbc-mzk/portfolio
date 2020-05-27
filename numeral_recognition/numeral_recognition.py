@@ -193,6 +193,8 @@ def recognize(image):
 
     input_data = preprocess(image_data)
 
+    image_data.save(r"C:\Users\iwbc_\Desktop\b.png")
+
     model = NumberClassifier.load('numeral_recognition/model.pickle')
     result = np.argmax(model.predict(input_data), axis=1)[0]
 
@@ -211,9 +213,9 @@ def preprocess(image):
     :return: 前処理後の画像データ
     """
     # グレースケール化
-    if image.mode == 'RGB':
+    if image.mode == 'RGB' or image.mode == 'RGBA':
         image_gray = image.convert('L')
-        image_np = 255 - np.array(image_gray)
+        image_np = 255 - np.asarray(image_gray)
         image_gray = Image.fromarray(image_np)
     else:
         image_gray = image
