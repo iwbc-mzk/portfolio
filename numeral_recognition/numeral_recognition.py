@@ -211,9 +211,9 @@ def preprocess(image):
     :return: 前処理後の画像データ
     """
     # グレースケール化
-    if image.mode == 'RGB':
+    if image.mode == 'RGB' or image.mode == 'RGBA':
         image_gray = image.convert('L')
-        image_np = 255 - np.array(image_gray)
+        image_np = 255 - np.asarray(image_gray)
         image_gray = Image.fromarray(image_np)
     else:
         image_gray = image
