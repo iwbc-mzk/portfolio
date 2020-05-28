@@ -193,8 +193,6 @@ def recognize(image):
 
     input_data = preprocess(image_data)
 
-    image_data.save(r"C:\Users\iwbc_\Desktop\b.png")
-
     model = NumberClassifier.load('numeral_recognition/model.pickle')
     result = np.argmax(model.predict(input_data), axis=1)[0]
 

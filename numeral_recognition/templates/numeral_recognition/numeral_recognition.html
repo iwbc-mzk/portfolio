@@ -19,18 +19,38 @@
             </div>
         </div>
         <div class="border-line mt-3 mb-3"></div>
-        <div class="d-flex justify-content-center">
-            <div class="text-left flex-column">
-                <h3>結果: <span id="result"></span></h3>
-                <form method="post" action="/numeralRecognition/" enctype="multipart/form-data" id="form">
-                    {% csrf_token %}
-                    <span class="text-danger" id="errorMsg"></span><br>
-                    <small>認識させる画像ファイルを選択してください</small><br>
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary" id="submitBtn">認識</button>
-                </form>
-                <canvas id="nr_canvas" width="300px" height="200px" style="border: solid"></canvas>
-                <button class="btn btn-primary" id="canvasClear">Clear</button>
+        <div class="row">
+
+            <div class="col-lg mb-5">
+                <h3 class="text-center">画像ファイルを認識させる</h3>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-8 text-left">
+                        <h4>結果: <span id="imageResult"></span></h4>
+                        <span class="text-danger" id="imageErrorMsg"></span>
+                        <form method="post" action="/numeralRecognition/" enctype="multipart/form-data" id="form">
+                            {% csrf_token %}
+                            <small>認識させる画像ファイルを選択してください</small><br>
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-primary" id="submitBtn">認識</button>
+                        </form>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+
+            <div class="col-lg mb-5">
+                <h3 class="text-center">手書き文字を認識させる</h3>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-8 text-left">
+                        <h4>結果: <span id="canvasResult"></span></h4>
+                        <span class="text-danger" id="canvasErrorMsg"></span>
+                        <canvas id="nr_canvas" width="300px" height="300px" style="border: solid"></canvas>
+                        <button class="btn btn-primary" id="canvasClear">Clear</button>
+                    </div>
+                    <div class="col"></div>
+                </div>
             </div>
         </div>
     </div>

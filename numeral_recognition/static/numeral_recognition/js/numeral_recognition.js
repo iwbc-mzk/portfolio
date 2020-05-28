@@ -21,8 +21,9 @@ class Canvas {
         // 線の幅
         this.lineWidth = 15;
 
-        this.cnvWidth = 300;
-        this.cnvHeight = 200;
+        // Canvasの幅・高さ
+        this.cnvWidth = this.cv.width;
+        this.cnvHeight = this.cv.height;
 
         this.setBgColor()
         this.setLineStyle()
@@ -84,9 +85,9 @@ function sendCanvasImg() {
         contentType: false,
     }).done( function(response) {
         if (response.error_msg) {
-            $('#errorMsg').text('Error: ' + response.error_msg);
+            $('#canvasErrorMsg').text('Error: ' + response.error_msg);
         } else {
-            $('#result').text(response.result);
+            $('#canvasResult').text(response.result);
         }
 
     })
@@ -142,9 +143,9 @@ $( function() {
                 contentType: false,
         }).done( function(response) {
             if (response.error_msg) {
-                $('#errorMsg').text('Error: ' + response.error_msg);
+                $('#imageErrorMsg').text('Error: ' + response.error_msg);
             } else {
-                $('#result').text(response.result);
+                $('#imageResult').text(response.result);
             }
 
         })
