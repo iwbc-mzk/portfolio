@@ -188,11 +188,7 @@ def recognize(image):
     :return: int型
     """
     image_data = Image.open(image)
-    if image_data.size != (28, 28):
-        image_data = image_data.resize((28, 28))
-
     input_data = preprocess(image_data)
-
     model = NumberClassifier.load('numeral_recognition/model.pickle')
     result = np.argmax(model.predict(input_data), axis=1)[0]
 
@@ -203,36 +199,79 @@ def preprocess(image):
     """
     画像データの前処理を行う
     1. グレースケール化
-    2. 20×20pxにリサイズ
-    3. 重心が中心に来るように28×28pxにリサイズ
-    4. 各要素が 0~1 になるように255で除算
-    5. 1×784の行列に整形
+    2. 上下左右の空白部分を取り除く
+    3. 20×20pxにリサイズ
+    4. 重心が中心に来るように28×28pxにリサイズ
+    5. 各要素が 0~1 になるように255で除算
+    6. 1×784の行列に整形
     :param image: 前処理を行う pillowで読み込んだ画像データ
     :return: 前処理後の画像データ
     """
     # グレースケール化
     if image.mode == 'RGB' or image.mode == 'RGBA':
-        image_gray = image.convert('L')
-        image_np = 255 - np.asarray(image_gray)
-        image_gray = Image.fromarray(image_np)
+        image_grayscale = image.convert('L')
+        image_grayscale = Image.fromarray(255 - np.asarray(image_grayscale), mode='L')
     else:
-        image_gray = image
+        image_grayscale = image
 
-    # 20×20pxにリサイズ
-    image_resize = image_gray.resize((20, 20))
+    # 空白マージンを取り除く
+    mt, mb, ml, mr = get_image_margin(image_grayscale)
+    image_np = np.asarray(image_grayscale)
+    row, column = image_np.shape
+    image_np = image_np[mt: row - mb, ml:column - mr]
+    image_margin_removed = Image.fromarray(image_np, mode='L')
 
+    # 20×20pxに収まるようにリサイズ
+    width, height = image_margin_removed.size
+    resize_width, resize_height = (20, int(20*(height/width))) if width >= height else (int(20*(width/height)), 20)
+    image_resize = image_margin_removed.resize((resize_width, resize_height))
+
+    # 中心に画像の重心が来るようにして28×28pxにリサイズ
     x_com, y_com = calc_center_of_mass(np.array(image_resize))
     x_com = int(round(x_com, 0))
     y_com = int(round(y_com, 0))
-
-    # 28×28のベース画像の中心に重心が来るように張り付ける
     img_ret = Image.new('L', (28, 28))
-    img_ret.paste(image_resize, (4-x_com, 4-y_com))
+    a = int((28-resize_width)/2) - x_com
+    img_ret.paste(image_resize, (int((28-resize_width)/2) - x_com, int((28-resize_height)/2) - y_com))
 
+    # 正規化
     img_norm = np.true_divide(np.array(img_ret), 255)
     img_reshape = img_norm.reshape(1, 28*28)
 
+    img_ret.save(r"C:\Users\iwbc_\Desktop\num.png")
+
     return img_reshape
+
+
+def get_image_margin(image):
+    """
+    イメージのマージンを取得する。
+    上下左右端から最初に値が0より大きくなるセルを探し、端からそのセルまでのセル数をマージンとして返す。
+    :param image:
+    :return: tuple (margin_top, margin_bottom, margin_left, margin_right)
+    """
+    image_np = np.asarray(image)
+
+    row_sum = image_np.sum(axis=1)
+    margin_top = get_first_non_zero_index(row_sum)
+    margin_top = margin_top if margin_top else 0
+    margin_bottom = get_first_non_zero_index(np.flipud(row_sum))
+    margin_bottom = margin_bottom if margin_bottom else 0
+
+    row_column = image_np.sum(axis=0)
+    margin_left = get_first_non_zero_index(row_column)
+    margin_left = margin_left if margin_left else 0
+    margin_right = get_first_non_zero_index(np.flipud(row_column))
+    margin_right = margin_right if margin_right else 0
+
+    return margin_top, margin_bottom, margin_left, margin_right
+
+
+def get_first_non_zero_index(array):
+    for idx, i in enumerate(array):
+        if i > 0:
+            return idx
+    return None
 
 
 def calc_center_of_mass(matrix):
@@ -246,9 +285,10 @@ def calc_center_of_mass(matrix):
     row, column = matrix.shape
 
     # 1行が ..., -1.5, -0.5, 0.5, 1.5, ...の行列を用意し座標代わりにする
-    tile = np.arange(column) - (column-1)/2
-    x_coordinate = np.tile(tile, [row, 1])
-    y_coordinate = x_coordinate.T
+    x_tile = np.arange(column) - (column-1)/2
+    x_coordinate = np.tile(x_tile, [row, 1])
+    y_tile = np.arange(row) - (row-1)/2
+    y_coordinate = np.tile(y_tile, [column, 1]).T
 
     mat_sum = np.sum(matrix)
 
