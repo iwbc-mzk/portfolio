@@ -21,6 +21,6 @@ from portfolio import views as portfolio_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('portfolio/', include('portfolio.urls')),
-    path('numeralRecognition/', include('numeral_recognition.urls')),
+    path('numberClassifier/', include('number_classifier.urls')),
     path('', include('portfolio.urls')),
 ]

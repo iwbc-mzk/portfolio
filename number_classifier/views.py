@@ -1,13 +1,13 @@
 from django.views.generic import FormView
 from .forms import ImageFileForm
 from django.http import JsonResponse
-from numeral_recognition.numeral_recognition import recognize
+from number_classifier.number_classifier import recognize
 from io import BytesIO
 import base64
 
 
-class NumeralRecognitionForm(FormView):
-    template_name = 'numeral_recognition/numeral_recognition.html'
+class NumberClassifierForm(FormView):
+    template_name = 'number_classifier/number_classifier.html'
     form_class = ImageFileForm
 
     def form_valid(self, form):

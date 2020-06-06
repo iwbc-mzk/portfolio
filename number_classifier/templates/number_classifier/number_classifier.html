@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-    <link href="{% static 'numeral_recognition/css/numeral_recognition.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'number_classifier/css/number_classifier.css' %}" rel="stylesheet" type="text/css">
     <title>Title</title>
 {% endblock %}
 
@@ -28,7 +28,7 @@
                     <div class="col-8 text-left">
                         <h4>結果: <span id="imageResult"></span></h4>
                         <span class="text-danger" id="imageErrorMsg"></span>
-                        <form method="post" action="/numeralRecognition/" enctype="multipart/form-data" id="form">
+                        <form method="post" action="/numberClassifier/" enctype="multipart/form-data" id="form">
                             {% csrf_token %}
                             <small>認識させる画像ファイルを選択してください</small><br>
                             {{ form.as_p }}
@@ -55,5 +55,5 @@
         </div>
     </div>
 
-    <script src="{% static 'numeral_recognition/js/numeral_recognition.js' %}"></script>
+    <script src="{% static 'number_classifier/js/number_classifier.js' %}"></script>
 {% endblock %}

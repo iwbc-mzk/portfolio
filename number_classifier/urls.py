@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import NumeralRecognitionForm, canvas
+from .views import NumberClassifierForm, canvas
 
 
 urlpatterns = [
-    path('', NumeralRecognitionForm.as_view()),
-    path('a/', canvas),
+    path('', NumberClassifierForm.as_view()),
+    path('canvas/', canvas),
 ]

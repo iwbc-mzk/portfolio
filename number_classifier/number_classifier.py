@@ -189,7 +189,7 @@ def recognize(image):
     """
     image_data = Image.open(image)
     input_data = preprocess(image_data)
-    model = NumberClassifier.load('numeral_recognition/model.pickle')
+    model = NumberClassifier.load('number_classifier/model.pickle')
     result = np.argmax(model.predict(input_data), axis=1)[0]
 
     return result
