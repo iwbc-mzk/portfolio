@@ -231,14 +231,11 @@ def preprocess(image):
     x_com = int(round(x_com, 0))
     y_com = int(round(y_com, 0))
     img_ret = Image.new('L', (28, 28))
-    a = int((28-resize_width)/2) - x_com
     img_ret.paste(image_resize, (int((28-resize_width)/2) - x_com, int((28-resize_height)/2) - y_com))
 
     # 正規化
     img_norm = np.true_divide(np.array(img_ret), 255)
     img_reshape = img_norm.reshape(1, 28*28)
-
-    img_ret.save(r"C:\Users\iwbc_\Desktop\num.png")
 
     return img_reshape
 
