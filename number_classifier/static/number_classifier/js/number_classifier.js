@@ -70,7 +70,7 @@ function sendCanvasImg() {
     fd.append('img', img);
 
    $.ajax({
-        url: "/numeralRecognition/a/",
+        url: "/numberClassifier/canvas/",
         method: "post",
         data: fd,
         timeout: 10000,

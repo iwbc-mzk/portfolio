@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portfolio',
-    'numeral_recognition',
+    'number_classifier',
 ]
 
 MIDDLEWARE = [
