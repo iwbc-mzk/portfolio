@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'portfolio',
     'number_classifier',
+    'book_management',
 ]
 
 MIDDLEWARE = [
