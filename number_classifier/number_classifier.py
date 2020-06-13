@@ -44,25 +44,25 @@ class NumberClassifier:
         # ミニバッチ単位で学習する
         # i+self.batch_sizeがlen(target_data)を超えていても正常に動作する
         for _ in tqdm(range(self.epochs)):
+            training_data_shuffled, target_data_shuffled = self._shuffle(training_data, target_data)
             for i in range(0, len(target_data), self.batch_size):
-                last_index = i + self.batch_size if i + self.batch_size <= training_data.shape[0] else \
-                training_data.shape[0]
-                batch_train_data = training_data[i:last_index, :]
-                batch_target_data = target_data[i:last_index, :]
+                last_index = i + self.batch_size \
+                    if i + self.batch_size <= training_data_shuffled.shape[0] \
+                    else training_data_shuffled.shape[0]
+                batch_train_data = training_data_shuffled[i:last_index, :]
+                batch_target_data = target_data_shuffled[i:last_index, :]
 
                 # 重みの初期化
                 if not self.is_weight_initialized:
                     self._initialize_weights(batch_train_data.shape[1], batch_target_data.shape[1])
 
-                training_data_shuffled, target_data_shuffled = self._shuffle(batch_train_data, batch_target_data)
-
                 # バイアス用の列を追加
-                training_data_shuffled = np.concatenate([np.ones((training_data_shuffled.shape[0], 1)),
-                                                         training_data_shuffled], axis=1)
-                target_data_shuffled = np.concatenate([np.ones((target_data_shuffled.shape[0], 1)),
-                                                       target_data_shuffled], axis=1)
+                batch_train_data = np.concatenate([np.ones((batch_train_data.shape[0], 1)),
+                                                   batch_train_data], axis=1)
+                batch_target_data = np.concatenate([np.ones((batch_target_data.shape[0], 1)),
+                                                    batch_target_data], axis=1)
 
-                error_norm = self._update_weight(training_data_shuffled, target_data_shuffled)
+                error_norm = self._update_weight(batch_train_data, batch_target_data)
 
             # 誤差のノルムをリストに格納
             self.error_norm_list.append(error_norm)
