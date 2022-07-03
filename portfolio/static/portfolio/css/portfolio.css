@@ -19,6 +19,11 @@
 
 .box-item {
     height: 250px;
+    cursor: pointer;
+}
+
+.default-cursor {
+    cursor: default;
 }
 
 .works-base {
@@ -95,7 +100,8 @@ a.nav-link {
     padding-bottom: 20px;
 }
 
-.section-bg {
+.modal-body > .modal-row:nth-child(odd),
+.section:nth-child(even) {
     background-color: rgba(0, 11, 0, 0.03);
 }
 
@@ -147,3 +153,10 @@ span.text-muted {
     font-size: 1rem;
 }
 
+.skill-icon {
+    cursor: pointer;
+}
+
+.modal ul {
+    margin: auto;
+}

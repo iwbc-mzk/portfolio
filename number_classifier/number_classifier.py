@@ -3,7 +3,7 @@ import pickle
 import datetime
 from tqdm import tqdm
 from PIL import Image
-from tensorflow.python.keras.datasets import mnist
+from keras.datasets import mnist
 
 
 def sigmoid(x):
