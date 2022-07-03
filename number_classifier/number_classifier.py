@@ -5,7 +5,6 @@ from tqdm import tqdm
 from PIL import Image
 from keras.datasets import mnist
 
-
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
