@@ -1,4 +1,4 @@
-version: "3"
+version: "3.5"
 services:
   web:
     build: .
@@ -7,19 +7,21 @@ services:
       gunicorn portfolio_project.wsgi --bind 0.0.0.0:8000"
     container_name: web
     tty: true
-    expose:
-      - 8000
+    networks:
+      - portfolio-network
     volumes:
       - /static/:/code/staticfiles/
     environment:
       - DJANGO_SECRET_KEY
 
-  nginx:
+  portfolio-nginx:
     build: ./nginx
     container_name: nginx
     ports:
-      - 80:80
-      - 443:443
+      - 8001
+    networks:
+      - proxy-network
+      - portfolio-network
     volumes:
       - ./nginx/conf:/etc/nginx/conf.d
       - /var/log/nginx/:/var/log/nginx/
@@ -27,3 +29,9 @@ services:
       - /ssl/:/ssl/
     depends_on:
       - web
+
+networks:
+  proxy-network:
+    name: proxy-network
+  portfolio-network:
+    name: portfolio-network
