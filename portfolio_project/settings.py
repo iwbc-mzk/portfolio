@@ -26,6 +26,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = ['portfolio.bibliophage.jp']
+CSRF_TRUSTED_ORIGINS = ['https://portfolio.bibliophage.jp']
 
 
 # Application definition
