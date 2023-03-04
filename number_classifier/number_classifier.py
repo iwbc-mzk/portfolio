@@ -1,9 +1,20 @@
+import os
+
 import numpy as np
 import pickle
 import datetime
 from tqdm import tqdm
 from PIL import Image
-from keras.datasets import mnist
+
+# 暫定対応
+# runserver実行時とmain()実行時で作業パスが異なるため?
+# 将来的には認証済ユーザーのリクエストでモデル学習するようにすべきか
+try:
+    from .mnist import Mnist
+except ImportError:
+    from mnist import Mnist
+
+DATASET_DIR = os.path.dirname(os.path.abspath(__file__)) + "/mnist"
 
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
@@ -293,9 +304,9 @@ def calc_center_of_mass(matrix):
 
     return x_com, y_com
 
-
 def main():
-    (train_images, train_labels), (test_images, test_labels) = mnist.load_data()
+    m = Mnist(dataset_dir=DATASET_DIR)
+    (train_images, train_labels), (test_images, test_labels) = m.load()
 
     start_time = datetime.datetime.now()
 

@@ -1,2 +1,4 @@
 *.pyc
 local_settings.py
+/number_classifier/mnist/
+/venv
