@@ -7,6 +7,7 @@ services:
       gunicorn portfolio_project.wsgi --bind 0.0.0.0:8000"
     container_name: web
     tty: true
+    restart: unless-stopped
     networks:
       - portfolio-network
     volumes:
@@ -19,6 +20,7 @@ services:
     container_name: nginx
     ports:
       - 8001
+    restart: unless-stopped
     networks:
       - proxy-network
       - portfolio-network
